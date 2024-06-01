@@ -5,7 +5,7 @@
 
 // Ignore Spelling: Api
 
-namespace TaskManagement.Web.Api.Models
+namespace AnishCeDev.TaskManagement.Web.Api.Models
 {
     public class EmailBookModel
     {

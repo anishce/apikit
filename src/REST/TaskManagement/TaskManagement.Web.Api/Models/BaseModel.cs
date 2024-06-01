@@ -7,15 +7,9 @@
 
 namespace AnishCeDev.TaskManagement.Web.Api.Models
 {
-    public class PhoneBookModel
+    public abstract class BaseModel
     {
-        public PhoneBookType Type { get; set; }
-        public string? PhoneNumber { get; set; }
-    }
-
-    public enum PhoneBookType
-    {
-        Office=1,
-        Home=2
+        public int Id { get; set; }
+        public int version { get; set; }
     }
 }

@@ -5,7 +5,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace TaskManagement.Web.Api.Controllers
+namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

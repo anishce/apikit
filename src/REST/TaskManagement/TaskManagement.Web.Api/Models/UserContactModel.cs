@@ -7,15 +7,11 @@
 
 namespace AnishCeDev.TaskManagement.Web.Api.Models
 {
-    public class PhoneBookModel
+    public class UserContactModel
     {
-        public PhoneBookType Type { get; set; }
-        public string? PhoneNumber { get; set; }
-    }
-
-    public enum PhoneBookType
-    {
-        Office=1,
-        Home=2
+        public IEnumerable<EmailBookModel> Emails { get; set; } = null!;
+        public IEnumerable<PhoneBookModel> Phones { get; set; } = null!;
+        public string? FaxNumber {  get; set; }
+        public string? Remarks { get; set; }
     }
 }
