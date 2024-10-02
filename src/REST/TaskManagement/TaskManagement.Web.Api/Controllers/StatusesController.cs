@@ -14,12 +14,12 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StatusController : ControllerBase
+    public class StatusesController : ControllerBase
     {
         private readonly IStatusAppService statusAppService;
 
 #pragma warning disable VSSpell001 // Spell Check
-        public StatusController(IStatusAppService statusAppService)
+        public StatusesController(IStatusAppService statusAppService)
 #pragma warning restore VSSpell001 // Spell Check
         {
             this.statusAppService = statusAppService;    
