@@ -14,11 +14,11 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PriorityController : ControllerBase
+    public class PrioritiesController : ControllerBase
     {
         private readonly IPriorityAppService priorityAppService;
 
-        public PriorityController(IPriorityAppService priorityAppService)
+        public PrioritiesController(IPriorityAppService priorityAppService)
         {
             this.priorityAppService = priorityAppService;
         }
