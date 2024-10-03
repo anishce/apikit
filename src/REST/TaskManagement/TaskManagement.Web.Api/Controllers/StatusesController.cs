@@ -17,28 +17,45 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
     public class StatusesController : ControllerBase
     {
         private readonly IStatusAppService statusAppService;
-
+        private readonly ILogger logger;
 #pragma warning disable VSSpell001 // Spell Check
-        public StatusesController(IStatusAppService statusAppService)
+        public StatusesController(IStatusAppService statusAppService, ILogger logger)
 #pragma warning restore VSSpell001 // Spell Check
         {
-            this.statusAppService = statusAppService;    
+            this.statusAppService = statusAppService;
+            this.logger = logger;
         }
 
         // GET: api/status/1
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var status = await this.statusAppService.GetStatusAsync(id);
-            return Ok(status);
+            try
+            {
+                var status = await this.statusAppService.GetStatusAsync(id);
+                return Ok(status);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         // GET: api/status
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var statuses = await this.statusAppService.GetStatusesAsync();
-            return Ok(statuses);
+            try
+            {
+                var statuses = await this.statusAppService.GetStatusesAsync();
+                return Ok(statuses);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }
