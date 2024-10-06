@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IStatusAppService, StatusAppService>();
 builder.Services.AddScoped<IPriorityAppService, PriorityAppService>();
 builder.Services.AddScoped<ICategoryAppService, CategoryAppService>();
+builder.Services.AddScoped<IUserAppService, UserAppService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
