@@ -20,6 +20,6 @@ namespace AnishCeDev.TaskManagement.Web.Api.Models
         public PriorityModel Priority { get; set; } = null!;
         public StatusModel Status { get; set; } = null!;
         public List<LinkModel> Links { get; set; } = null!;
-        public List<User> Assignees { get; set; } = null!;
+        public List<UserModel> Assignees { get; set; } = null!;
     }
 }
