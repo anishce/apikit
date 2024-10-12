@@ -34,13 +34,13 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // POST api/<TasksController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] string value)
         {
         }
 
         // PUT api/<TasksController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void  Put(int id, [FromBody] string value)
         {
         }
 
