@@ -20,7 +20,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // GET: api/<TasksController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
             return new string[] { "value1", "value2" };
         }
