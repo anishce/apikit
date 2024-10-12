@@ -27,7 +27,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // GET api/<TasksController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             return "value";
         }
