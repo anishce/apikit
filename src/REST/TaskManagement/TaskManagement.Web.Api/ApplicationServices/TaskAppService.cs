@@ -12,9 +12,19 @@ namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
     {
         public async Task<TaskModel> GetTaskAsync(int taskId)
         {
+return await Task.Run(()=> GetTaskModel(taskId));
+        }
+
+        public async Task AddNewTaskAsync(TaskModel task)
+        {
 
         }
 
+        public async Task UpdateTaskAsync(TaskModel task)
+        {
+
+        }
+        
         private TaskModel GetTaskModel(int taskId)
         {
             return new TaskModel
