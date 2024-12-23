@@ -3,6 +3,8 @@
 // Author: AnishCeDev
 // ************************************************************************
 
+// Ignore Spelling: App
+
 using AnishCeDev.TaskManagement.Web.Api.Models;
 using Microsoft.AspNetCore.Mvc.Formatters;
 
