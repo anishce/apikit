@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
 {
-    public class TaskAppService
+    public class TaskAppService : ITaskAppService
     {
         public async Task<TaskModel> GetTaskAsync(int taskId)
         {
-return await Task.Run(()=> GetTaskModel(taskId));
+            return await Task.Run(() => GetTaskModel(taskId));
         }
 
         public async Task AddNewTaskAsync(TaskModel task)
@@ -26,7 +26,7 @@ return await Task.Run(()=> GetTaskModel(taskId));
         {
 
         }
-        
+
         private TaskModel GetTaskModel(int taskId)
         {
             return new TaskModel
