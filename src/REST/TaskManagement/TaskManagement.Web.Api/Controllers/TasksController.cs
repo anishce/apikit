@@ -14,8 +14,8 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        private readonly TaskAppService taskAppService;
-        public TasksController(TaskAppService taskAppService)
+        private readonly ITaskAppService taskAppService;
+        public TasksController(ITaskAppService taskAppService)
         {
             this.taskAppService = taskAppService;
         }
