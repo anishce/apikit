@@ -3,6 +3,7 @@
 // Author: AnishCeDev
 // ************************************************************************
 
+using AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,9 +14,10 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        public TasksController()
+        private readonly TaskAppService taskAppService;
+        public TasksController(TaskAppService taskAppService)
         {
-            
+            this.taskAppService = taskAppService;
         }
 
         // GET: api/<TasksController>
@@ -29,7 +31,12 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            if (id <= 0)
+            {
+                return BadRequest("Invalid Task Id.");
+            }
+            var task = await taskAppService.GetTaskAsync(id);
+            return Ok(task);
         }
 
         // POST api/<TasksController>
@@ -40,7 +47,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // PUT api/<TasksController>/5
         [HttpPut("{id}")]
-        public void  Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
