@@ -1,12 +1,11 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
 // Ignore Spelling: App
 
 using AnishCeDev.TaskManagement.Web.Api.Models;
-using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
 {
