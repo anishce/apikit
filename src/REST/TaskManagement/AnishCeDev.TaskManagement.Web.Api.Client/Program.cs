@@ -1,9 +1,7 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
-
-using System;
 
 #pragma warning disable VSSpell001 // Spell Check
 #pragma warning disable VSSpell001 // Spell Check
