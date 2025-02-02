@@ -1,5 +1,5 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
@@ -27,7 +27,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-           var priorities = await priorityAppService.GetPrioritiesAsync();
+            var priorities = await priorityAppService.GetPrioritiesAsync();
             return Ok(priorities);
         }
 
