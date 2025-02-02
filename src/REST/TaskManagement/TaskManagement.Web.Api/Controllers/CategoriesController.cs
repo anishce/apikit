@@ -1,5 +1,5 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
@@ -20,7 +20,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
         private readonly ICategoryAppService categoryAppService;
         public CategoriesController(ICategoryAppService categoryAppService)
         {
-            this.categoryAppService = categoryAppService;   
+            this.categoryAppService = categoryAppService;
         }
 
         // GET: api/<CategoryController>
