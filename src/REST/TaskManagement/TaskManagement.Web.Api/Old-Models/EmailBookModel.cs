@@ -1,5 +1,5 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
@@ -17,7 +17,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Models
 
     public enum EmailBookType
     {
-        Official=1,
-        Personal=2
+        Official = 1,
+        Personal = 2
     }
 }
