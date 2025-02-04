@@ -1,11 +1,9 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
 // Ignore Spelling: Api
-
-using System;
 
 #pragma warning disable VSSpell001 // Spell Check
 namespace AnishCeDev.TaskManagement.Web.Api.Models
@@ -18,7 +16,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Models
         public string LastName { get; set; } = null!;
         public string UserName = null!;
         public string Password = null!;
-        public UserContactModel Contact =null!;
+        public UserContactModel Contact = null!;
         //repeated UserAddressMessage addresses=8;
         public bool IsActive { get; set; }
         public string? Remarks { get; set; } = null;
