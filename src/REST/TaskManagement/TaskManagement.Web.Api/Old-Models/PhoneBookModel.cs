@@ -1,5 +1,5 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
@@ -17,7 +17,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Models
 
     public enum PhoneBookType
     {
-        Office=1,
-        Home=2
+        Office = 1,
+        Home = 2
     }
 }
