@@ -1,5 +1,5 @@
 ﻿// ************************************************************************
-// Copyright (c) AnishCeDev All Rights Reserved.
+// Copyright (c) 2025 AnishCeDev All Rights Reserved.
 // Author: AnishCeDev
 // ************************************************************************
 
@@ -13,7 +13,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Models
     {
         public IEnumerable<EmailBookModel> Emails { get; set; } = null!;
         public IEnumerable<PhoneBookModel> Phones { get; set; } = null!;
-        public string? FaxNumber {  get; set; }
+        public string? FaxNumber { get; set; }
         public string? Remarks { get; set; }
     }
 }
