@@ -5,9 +5,9 @@
 
 // Ignore Spelling: App
 
-using AnishCeDev.TaskManagement.Web.Api.Models;
+using AnishCeDev.TaskManagement.GraphQL.Api.Models;
 
-namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
+namespace AnishCeDev.TaskManagement.GraphQL.Api.ApplicationServices
 {
     public class TaskAppService : ITaskAppService
     {
