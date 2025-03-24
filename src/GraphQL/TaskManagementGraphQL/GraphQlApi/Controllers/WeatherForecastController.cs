@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 #pragma warning disable VSSpell001 // Spell Check
 #pragma warning disable VSSpell001 // Spell Check
-namespace AnishCeDev.TaskManagement.Web.Api.Controllers
+namespace AnishCeDev.TaskManagement.GraphQL.Api.Controllers
 #pragma warning restore VSSpell001 // Spell Check
 #pragma warning restore VSSpell001 // Spell Check
 {
