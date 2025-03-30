@@ -3,7 +3,7 @@
 // Author: AnishCeDev
 // ************************************************************************
 
-using AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
+using AnishCeDev.TaskManagement.GraphQL.Api.ApplicationServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
