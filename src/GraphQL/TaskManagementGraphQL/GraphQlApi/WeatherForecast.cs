@@ -5,7 +5,7 @@
 
 // Ignore Spelling: Anish Api
 
-namespace AnishCeDev.TaskManagement.Web.Api
+namespace AnishCeDev.TaskManagement.GraphQL.Api
 {
     public class WeatherForecast
     {
