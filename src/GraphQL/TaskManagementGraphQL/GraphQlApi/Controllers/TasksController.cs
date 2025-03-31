@@ -4,6 +4,7 @@
 // ************************************************************************
 
 using AnishCeDev.TaskManagement.GraphQL.Api.ApplicationServices;
+using AnishCeDev.TaskManagement.GraphQL.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -41,8 +42,11 @@ namespace AnishCeDev.TaskManagement.GraphQL.Api.Controllers
 
         // POST api/<TasksController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] TaskModel task)
         {
+            await taskAppService.AddNewTaskAsync(task);
+
+            return Ok();
         }
 
         // PUT api/<TasksController>/5
