@@ -25,7 +25,9 @@ namespace AnishCeDev.TaskManagement.GraphQL.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            var task = await taskAppService.GetTaskAsync(0);
+
+            return Ok(task);
         }
 
         // GET api/<TasksController>/5
@@ -51,13 +53,16 @@ namespace AnishCeDev.TaskManagement.GraphQL.Api.Controllers
 
         // PUT api/<TasksController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] TaskModel task)
         {
+            await taskAppService.AddNewTaskAsync(task);
+
+            return Ok();
         }
 
         // DELETE api/<TasksController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
         }
     }
