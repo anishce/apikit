@@ -6,6 +6,7 @@
 // Ignore Spelling: App
 
 using AnishCeDev.TaskManagement.GraphQL.Api.Models;
+using System.Threading.Tasks;
 
 namespace AnishCeDev.TaskManagement.GraphQL.Api.ApplicationServices
 {
@@ -18,12 +19,12 @@ namespace AnishCeDev.TaskManagement.GraphQL.Api.ApplicationServices
 
         public async Task AddNewTaskAsync(TaskModel task)
         {
-
+            await Task.Run(() => GetTaskModel(0));
         }
 
         public async Task UpdateTaskAsync(TaskModel task)
         {
-
+            await Task.Run(() => GetTaskModel(0));
         }
 
         private TaskModel GetTaskModel(int taskId)
