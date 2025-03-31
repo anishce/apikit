@@ -6,6 +6,7 @@
 using AnishCeDev.TaskManagement.GraphQL.Api.ApplicationServices;
 using AnishCeDev.TaskManagement.GraphQL.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -64,6 +65,9 @@ namespace AnishCeDev.TaskManagement.GraphQL.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            await taskAppService.GetTaskAsync(id);
+
+            return Ok();
         }
     }
 }
