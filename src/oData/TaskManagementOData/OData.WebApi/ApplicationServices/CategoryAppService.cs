@@ -5,9 +5,9 @@
 
 // Ignore Spelling: Anish App Api
 
-using AnishCeDev.TaskManagement.Web.Api.Models;
+using AnishCeDev.TaskManagement.Odata.Api.Models;
 
-namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
+namespace AnishCeDev.TaskManagement.Odata.Api.ApplicationServices
 {
     public class CategoryAppService : ICategoryAppService
     {
