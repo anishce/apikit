@@ -3,11 +3,11 @@
 // Author: AnishCeDev
 // ************************************************************************
 
-using AnishCeDev.TaskManagement.Web.Api.Models;
+using AnishCeDev.TaskManagement.Odata.Api.Models;
 
 #pragma warning disable VSSpell001 // Spell Check
 #pragma warning disable VSSpell001 // Spell Check
-namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
+namespace AnishCeDev.TaskManagement.Odata.Api.ApplicationServices
 #pragma warning restore VSSpell001 // Spell Check
 #pragma warning restore VSSpell001 // Spell Check
 {
