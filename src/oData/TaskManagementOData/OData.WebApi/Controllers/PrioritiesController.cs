@@ -5,12 +5,12 @@
 
 // Ignore Spelling: App Anish Api
 
-using AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
+using AnishCeDev.TaskManagement.Odata.Api.ApplicationServices;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace AnishCeDev.TaskManagement.Web.Api.Controllers
+namespace AnishCeDev.TaskManagement.Odata.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
