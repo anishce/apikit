@@ -9,8 +9,8 @@ namespace AnishCeDev.TaskManagement.Odata.Api.ApplicationServices
 {
     public interface ITaskAppService
     {
-        Task AddNewTaskAsync(TaskModel task);
+        Task<TaskModel> AddNewTaskAsync(TaskModel task);
         Task<TaskModel> GetTaskAsync(int taskId);
-        Task UpdateTaskAsync(TaskModel task);
+        Task<TaskModel> UpdateTaskAsync(TaskModel task);
     }
 }
