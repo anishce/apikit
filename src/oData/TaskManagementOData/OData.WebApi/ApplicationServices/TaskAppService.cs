@@ -5,9 +5,9 @@
 
 // Ignore Spelling: App
 
-using AnishCeDev.TaskManagement.Web.Api.Models;
+using AnishCeDev.TaskManagement.Odata.Api.Models;
 
-namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
+namespace AnishCeDev.TaskManagement.Odata.Api.ApplicationServices
 {
     public class TaskAppService : ITaskAppService
     {
@@ -16,14 +16,14 @@ namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
             return await Task.Run(() => GetTaskModel(taskId));
         }
 
-        public async Task AddNewTaskAsync(TaskModel task)
+        public async Task<TaskModel> AddNewTaskAsync(TaskModel task)
         {
-
+            return await Task.Run(() => GetTaskModel(1));
         }
 
-        public async Task UpdateTaskAsync(TaskModel task)
+        public async Task<TaskModel> UpdateTaskAsync(TaskModel task)
         {
-
+            return await Task.Run(() => GetTaskModel(1));
         }
 
         private TaskModel GetTaskModel(int taskId)
