@@ -8,16 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DataModels\**" />
-    <EmbeddedResource Remove="DataModels\**" />
-    <None Remove="DataModels\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="TaskManagementContextOld.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Repositories\" />
   </ItemGroup>
 
