@@ -22,7 +22,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // GET: api/<TasksController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
         }
@@ -43,6 +43,7 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] string value)
         {
+            return Created();
         }
 
         // PUT api/<TasksController>/5
