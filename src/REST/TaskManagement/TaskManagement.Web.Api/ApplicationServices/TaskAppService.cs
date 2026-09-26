@@ -18,12 +18,12 @@ namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
 
         public async Task AddNewTaskAsync(TaskModel task)
         {
-
+            await Task.Run(() => AddNewTask(task));
         }
 
-        public async Task UpdateTaskAsync(TaskModel task)
+        public async Task UpdateTaskAsync(int taskId, TaskModel task)
         {
-
+            await Task.Run(() => UpdateTask(task));
         }
 
         private TaskModel GetTaskModel(int taskId)
@@ -76,6 +76,16 @@ namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
 
                 }
             };
+        }
+
+        private void AddNewTask(TaskModel task)
+        {
+
+        }
+
+        private void UpdateTask(TaskModel task)
+        {
+
         }
     }
 }
