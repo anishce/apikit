@@ -23,9 +23,9 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // GET: api/<TasksController>
         [HttpGet]
-        public async Task<IEnumerable<string>> Get()
+        public async Task<IEnumerable<TaskModel>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await taskAppService.GetTasksAsync();
         }
 
         // GET api/<TasksController>/5
@@ -58,8 +58,10 @@ namespace AnishCeDev.TaskManagement.Web.Api.Controllers
 
         // DELETE api/<TasksController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            await taskAppService.RemoveTaskAsync(id);
+            return Ok();
         }
     }
 }
