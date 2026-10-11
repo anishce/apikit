@@ -11,6 +11,8 @@ namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
     {
         Task AddNewTaskAsync(TaskModel task);
         Task<TaskModel> GetTaskAsync(int taskId);
+        Task<IEnumerable<TaskModel>> GetTasksAsync();
+        Task RemoveTaskAsync(int taskId);
         Task UpdateTaskAsync(int taskId, TaskModel task);
     }
 }
