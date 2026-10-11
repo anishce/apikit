@@ -1,91 +1,62 @@
-﻿// ************************************************************************
-// Copyright (c) 2025 AnishCeDev All Rights Reserved.
-// Author: AnishCeDev
-// ************************************************************************
-
-// Ignore Spelling: App
-
+using AnishCeDev.TaskManagement.Web.Api.Data;
 using AnishCeDev.TaskManagement.Web.Api.Models;
 
-namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
+namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
+
+public sealed class TaskAppService(TaskRepository tasks, LinkRepository links) : ITaskAppService
 {
-    public class TaskAppService : ITaskAppService
+    public async Task<TaskModel> GetTaskAsync(int taskId)
     {
-        public async Task<TaskModel> GetTaskAsync(int taskId)
-        {
-            return await Task.Run(() => GetTaskModel(taskId));
-        }
-
-        public async Task AddNewTaskAsync(TaskModel task)
-        {
-            await Task.Run(() => AddNewTask(task));
-        }
-
-        public async Task UpdateTaskAsync(int taskId, TaskModel task)
-        {
-            await Task.Run(() => UpdateTask(task));
-        }
-
-        private TaskModel GetTaskModel(int taskId)
-        {
-            return new TaskModel
-            {
-                TaskId = taskId,
-                Assignees = new List<UserModel>
-                {
-                    new UserModel
-                    {
-                        UserId = 1,
-                        Firstname="John",
-                        Lastname="Doe",
-                        Email="john.doe@test.test",
-                        Username="john.doe"
-                    },
-                    new UserModel
-                    {
-                        UserId = 2,
-                        Firstname="Kevin",
-                        Lastname="White",
-                        Email="kevin.white@test.test",
-                        Username="kevin.white"
-                    }
-                },
-                Categories = new List<CategoryModel>
-                {
-                    new CategoryModel
-                    {
-                        CategoryId = 1,
-                        Description = "Test",
-                        Links = new List<LinkModel>
-                        {
-                            new LinkModel
-                            {
-                                Href="https://www.google.com",
-                                Rel="",
-                                Title="Google",
-                                Type="HyperLink"
-                            }
-                        },
-                        Name = "HyperLink Category"
-                    }
-                },
-                DateCompleted = DateTime.Now,
-                DueDate = DateTime.Now.AddDays(1),
-                Links = new List<LinkModel>
-                {
-
-                }
-            };
-        }
-
-        private void AddNewTask(TaskModel task)
-        {
-
-        }
-
-        private void UpdateTask(TaskModel task)
-        {
-
-        }
+        var entity = await tasks.GetByIdAsync(taskId) ?? throw new KeyNotFoundException($"Task {taskId} was not found.");
+        return await ToModelAsync(entity);
     }
+
+    public async Task AddNewTaskAsync(TaskModel model)
+    {
+        var entity = model.ToEntity();
+        await tasks.ReplaceRelationshipsAsync(entity, (model.Categories ?? []).Select(x => x.CategoryId), (model.Assignees ?? []).Select(x => x.UserId));
+        entity = await tasks.AddAsync(entity);
+        await links.ReplaceForParentAsync("Task", entity.TaskId, (model.Links ?? []).Select(x => x.ToEntity()));
+    }
+
+    public async Task<IEnumerable<TaskModel>> GetTasksAsync()
+    {
+        var result = new List<TaskModel>();
+        foreach (var entity in await tasks.GetAllAsync()) result.Add(await ToModelAsync(entity));
+        return result;
+    }
+
+    public async Task RemoveTaskAsync(int taskId)
+    {
+        await links.ReplaceForParentAsync("Task", taskId, []);
+        await tasks.DeleteAsync(taskId);
+    }
+
+    public async Task UpdateTaskAsync(int taskId, TaskModel model)
+    {
+        var entity = await tasks.GetByIdAsync(taskId) ?? throw new KeyNotFoundException($"Task {taskId} was not found.");
+        entity.Subject = model.Subject;
+        entity.StartDate = model.StartDate;
+        entity.DueDate = model.DueDate;
+        entity.DateCompleted = model.DateCompleted;
+        entity.PriorityId = model.Priority.PriorityId ?? 0;
+        entity.StatusId = model.Status.StatusId;
+        await tasks.ReplaceRelationshipsAsync(entity, (model.Categories ?? []).Select(x => x.CategoryId), (model.Assignees ?? []).Select(x => x.UserId));
+        await tasks.UpdateAsync(entity);
+        await links.ReplaceForParentAsync("Task", taskId, (model.Links ?? []).Select(x => x.ToEntity()));
+    }
+
+    private async Task<TaskModel> ToModelAsync(TaskEntity entity) => new()
+    {
+        TaskId = entity.TaskId,
+        Subject = entity.Subject,
+        StartDate = entity.StartDate,
+        DueDate = entity.DueDate,
+        DateCompleted = entity.DateCompleted,
+        Priority = entity.Priority.ToModel(await links.GetByParentAsync("Priority", entity.PriorityId)),
+        Status = entity.Status.ToModel(await links.GetByParentAsync("Status", entity.StatusId)),
+        Categories = (await Task.WhenAll(entity.Categories.Select(async x => x.ToModel(await links.GetByParentAsync("Category", x.CategoryId))))).ToList(),
+        Assignees = (await Task.WhenAll(entity.Assignees.Select(async x => x.ToModel(await links.GetByParentAsync("User", x.UserId))))).ToList(),
+        Links = (await links.GetByParentAsync("Task", entity.TaskId)).Select(x => x.ToModel()).ToList()
+    };
 }
