@@ -1,71 +1,8 @@
-﻿// ************************************************************************
-// Copyright (c) 2025 AnishCeDev All Rights Reserved.
-// Author: AnishCeDev
-// ************************************************************************
-
+using AnishCeDev.TaskManagement.Web.Api.Data;
 using AnishCeDev.TaskManagement.Web.Api.Models;
-
-#pragma warning disable VSSpell001 // Spell Check
-#pragma warning disable VSSpell001 // Spell Check
-namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices
-#pragma warning restore VSSpell001 // Spell Check
-#pragma warning restore VSSpell001 // Spell Check
+namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
+public sealed class PriorityAppService(PriorityRepository priorities, LinkRepository links) : IPriorityAppService
 {
-#pragma warning disable VSSpell001 // Spell Check
-    public class PriorityAppService : IPriorityAppService
-#pragma warning restore VSSpell001 // Spell Check
-    {
-        public async Task<PriorityModel> GetPriorityAsync(int priorityId)
-        {
-            return await Task.Run(() => GetPriorityModel());
-        }
-
-        public async Task<IEnumerable<PriorityModel>> GetPrioritiesAsync()
-        {
-            return await Task.Run(() => GetPriorityModels());
-        }
-
-        private PriorityModel GetPriorityModel()
-        {
-            return new PriorityModel
-            {
-                PriorityId = 1,
-                Ordinal = 2,
-                Name = "In Progress",
-                Links = new List<LinkModel>
-                {
-                    new LinkModel
-                    {
-                        Href="https://www.google.com",
-                        Rel="",
-                        Title="Google",
-                        Type="HyperLink"
-                    }
-                }
-            };
-        }
-
-        private IEnumerable<PriorityModel> GetPriorityModels()
-        {
-            return new List<PriorityModel>
-            {
-                new PriorityModel
-                {
-                    PriorityId = 1,
-                    Ordinal = 2,
-                    Name = "In Progress",
-                    Links = new List<LinkModel>
-                    {
-                        new LinkModel
-                        {
-                            Href="https://www.google.com",
-                            Rel="",
-                            Title="Google",
-                            Type="HyperLink"
-                        }
-                    }
-                }
-            };
-        }
-    }
+    public async Task<PriorityModel> GetPriorityAsync(int id) { var item = await priorities.GetByIdAsync(id) ?? throw new KeyNotFoundException($"Priority {id} was not found."); return item.ToModel(await links.GetByParentAsync("Priority", item.PriorityId)); }
+    public async Task<IEnumerable<PriorityModel>> GetPrioritiesAsync() { var result = new List<PriorityModel>(); foreach (var item in await priorities.GetAllAsync()) result.Add(item.ToModel(await links.GetByParentAsync("Priority", item.PriorityId))); return result; }
 }
