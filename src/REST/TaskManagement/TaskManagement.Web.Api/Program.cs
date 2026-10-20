@@ -5,6 +5,7 @@
 
 using AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
 using AnishCeDev.TaskManagement.Web.Api.Data;
+using AnishCeDev.TaskManagement.Web.Api.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
