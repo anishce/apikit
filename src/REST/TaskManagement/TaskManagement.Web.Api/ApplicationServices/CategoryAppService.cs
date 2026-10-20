@@ -1,4 +1,4 @@
-using AnishCeDev.TaskManagement.Web.Api.Data;
+using AnishCeDev.TaskManagement.Web.Api.Data.Repositories;
 using AnishCeDev.TaskManagement.Web.Api.Models;
 
 namespace AnishCeDev.TaskManagement.Web.Api.ApplicationServices;
