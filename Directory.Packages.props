@@ -7,5 +7,6 @@
 	<PackageVersion Include="Swashbuckle.AspNetCore" Version="10.2.3" />
 	<PackageVersion Include="Grpc.AspNetCore" Version="2.64.0" />
 	<PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1" />
+	<PackageVersion Include="System.Security.Cryptography.Pkcs" Version="9.0.21" />	
   </ItemGroup>
 </Project>
