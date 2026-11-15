@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildAndPackages", "BuildAn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnishCeDev.TaskManagement.Web.Grpc", "TaskManagement.Web.Grpc\AnishCeDev.TaskManagement.Web.Grpc.csproj", "{D611D2AE-2AF0-488D-B6B1-EA0894B991EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnishCeDev.TaskManagement.Web.Grpc.Client", "Web.Grpc.Client\AnishCeDev.TaskManagement.Web.Grpc.Client.csproj", "{4CED6255-EC11-F8B6-0855-B629EBEAA552}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +27,17 @@ Global
 		{D611D2AE-2AF0-488D-B6B1-EA0894B991EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D611D2AE-2AF0-488D-B6B1-EA0894B991EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D611D2AE-2AF0-488D-B6B1-EA0894B991EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CED6255-EC11-F8B6-0855-B629EBEAA552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CED6255-EC11-F8B6-0855-B629EBEAA552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CED6255-EC11-F8B6-0855-B629EBEAA552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CED6255-EC11-F8B6-0855-B629EBEAA552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D611D2AE-2AF0-488D-B6B1-EA0894B991EA} = {A73BCB54-6891-408E-863F-E125E129C68D}
+		{4CED6255-EC11-F8B6-0855-B629EBEAA552} = {810D2AA3-17D2-43BB-A5B7-6F727810D95D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA5C2921-BB77-4D99-850F-E7E4CE8DB479}
